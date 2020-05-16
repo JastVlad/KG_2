@@ -16,7 +16,7 @@ namespace TomogrammVisualizer
         {
             if (File.Exists(path))
             {
-                BinaryReader reader = 
+                BinaryReader reader =
                     new BinaryReader(File.Open(path, FileMode.Open));
 
                 X = reader.ReadInt32();

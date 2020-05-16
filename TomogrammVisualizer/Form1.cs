@@ -41,30 +41,35 @@ namespace TomogrammVisualizer
         {
             if (loaded)
             {
-                view.DrawQuads(currentLayer);
-                glControl1.SwapBuffers();
+                if (radioButton1.Checked)
+                {
+                    view.DrawQuads(currentLayer);
+                    glControl1.SwapBuffers();
+                }
+                if (radioButton3.Checked)
+                {
+                    view.DrawQuads(currentLayer);
+                    glControl1.SwapBuffers();
+                }
+                if (radioButton2.Checked == true)
+                {
+                    if (needReload)
+                    {
+                        view.generateTextureImage(currentLayer);
+                        view.Load2DTexture();
+                        needReload = false;
+                    }
+                    view.DrawTexture();
+                    glControl1.SwapBuffers();
+                }
             }
         }
-
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             currentLayer = trackBar1.Value;
             needReload = true;
         }
- 
-        private void trackBar2_Scroll(object sender, EventArgs e)
-        {
-            view.minimum = trackBar2.Value;
-            needReload = true;
-
-        }
-        private void trackBar3_Scroll(object sender, EventArgs e)
-        {
-            view.TFwidth = trackBar3.Value;
-            needReload = true;
-        }
-
 
         void Application_Idle(object sender, EventArgs e)
         {
@@ -93,7 +98,29 @@ namespace TomogrammVisualizer
             FrameCount++;
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void trackBar3_Scroll(object sender, EventArgs e)
+        {
+            view.window = trackBar3.Value;
+            needReload = true;
+        }
+
+        private void trackBar2_Scroll(object sender, EventArgs e)
+        {
+            view.minimum = trackBar2.Value;
+            needReload = true;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
