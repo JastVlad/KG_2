@@ -119,7 +119,7 @@ namespace TomogrammVisualizer
 
             GL.Disable(EnableCap.Texture2D);
         }
-        public void DrawQuadStrip(int layerNum, int min, int max)
+        public void DrawQuadStrip(int layerNum)
         {
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             for (int x_coord = 0; x_coord < Bin.X - 1; x_coord++)
