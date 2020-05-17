@@ -48,7 +48,7 @@ namespace TomogrammVisualizer
                 }
                 if (radioButton3.Checked)
                 {
-                    view.DrawQuads(currentLayer);
+                    view.DrawQuadStrip(currentLayer);
                     glControl1.SwapBuffers();
                 }
                 if (radioButton2.Checked == true)
